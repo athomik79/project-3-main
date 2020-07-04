@@ -1,0 +1,28 @@
+{
+  "name": "project-3-main",
+  "version": "1.0.0",
+  "description": "A Full Stack Mern APP with authentication",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/athomik79/project-3-main.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/athomik79/project-3-main/issues"
+  },
+  "homepage": "https://github.com/athomik79/project-3-main#readme",
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.21"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
