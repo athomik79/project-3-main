@@ -13,6 +13,7 @@ app.use(express.json());
 mongoose
   .connect(db,{
     useNewUrlParser: true,
+    useUnifiedTopology: true,
     useCreateIndex: true
   }) // Adding new mongo url parser
   .then(() => console.log('MongoDB Connected'))
