@@ -4,7 +4,7 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter,
+  // ModalFooter,
   Input,
   Label,
   Form,

@@ -1,11 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const config = require('config');
 
 const app = express();
 
 // DB config
-const db = require('./config/keys').mongoURI;
+const db = config.get('mongoURI');
 
 app.use(express.json());
 
