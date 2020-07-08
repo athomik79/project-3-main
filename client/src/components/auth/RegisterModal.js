@@ -37,13 +37,20 @@ class RegisterModal extends Component {
 
   //
   componentDidUpdate(prevProps) {
-    const { error } = this.props;
+    const { error, isAuthenticated } = this.props;
     if (error !== prevProps.error) {
       // Check for register error
       if (error.id === 'REGISTER_FAIL') {
         this.setState({ msg: error.msg.msg });
       } else {
         this.setState({ msg: null });
+      }
+    }
+
+    // If authenticated, close modal
+    if (this.state.modal) {
+      if (isAuthenticated) {
+        this.toggle();
       }
     }
   }
@@ -76,9 +83,6 @@ class RegisterModal extends Component {
 
     // Attempt to register
     this.props.register(newUser);
-
-    // Close modal
-    // this.toggle();
   };
 
   render() {
@@ -101,7 +105,7 @@ class RegisterModal extends Component {
                 <Label for='firstName'>First Name</Label>
                 <Input
                   type='text'
-                  firstName='firstName'
+                  name='firstName'
                   id='firstName'
                   placeholder='First Name'
                   className='mb-3'
@@ -110,7 +114,7 @@ class RegisterModal extends Component {
                 <Label for='lastName'>Last Name</Label>
                 <Input
                   type='text'
-                  lastName='lastName'
+                  name='lastName'
                   id='lastName'
                   placeholder='Last Name'
                   className='mb-3'
@@ -119,16 +123,16 @@ class RegisterModal extends Component {
                 <Label for='email'>Email</Label>
                 <Input
                   type='email'
-                  email='email'
+                  name='email'
                   id='email'
                   placeholder='Email'
                   className='mb-3'
                   onChange={this.onChange}
                 />
-                <Label for='firstName'>First Name</Label>
+                <Label for='password'>Password</Label>
                 <Input
                   type='password'
-                  firstName='password'
+                  name='password'
                   id='password'
                   placeholder='Password'
                   className='mb-3'
