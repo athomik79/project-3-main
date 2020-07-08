@@ -1,5 +1,5 @@
-import axios from "axios";
-import { returnErrors } from "./errorActions";
+import axios from 'axios';
+import { returnErrors } from './errorActions';
 
 import {
   USER_LOADED,
@@ -10,7 +10,7 @@ import {
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
-} from "../actions/types";
+} from '../actions/types';
 
 // Check token & load user
 export const loadUser = () => (dispatch, getState) => {
@@ -19,7 +19,7 @@ export const loadUser = () => (dispatch, getState) => {
 
   // Get user
   axios
-    .get("/api/auth/user", tokenConfig(getState))
+    .get('/api/auth/user', tokenConfig(getState))
     .then((res) =>
       dispatch({
         type: USER_LOADED,
@@ -42,13 +42,13 @@ export const tokenConfig = (getState) => {
   // Headers
   const config = {
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
     },
   };
 
   // If token, add to headers
   if (token) {
-    config.headers["x-auth-token"] = token;
+    config.headers['x-auth-token'] = token;
   }
 
   return config;

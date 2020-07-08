@@ -9,10 +9,14 @@ const inititialState = {};
 const middleware = [thunk];
 
 // Store variable with redux devtools extension
-const store = createStore(rootReducer, inititialState, compose(
-  applyMiddleware(...middleware),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-));
+const store = createStore(
+  rootReducer,
+  inititialState,
+  compose(
+    applyMiddleware(...middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
 
 // window.__REDUX_DEVTOOLS_EXTENSION__
 // ? window.__REDUX_DEVTOOLS_EXTENSION__()
