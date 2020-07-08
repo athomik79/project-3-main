@@ -53,6 +53,7 @@ export const register = ({ firstName, lastName, email, password }) => (
     .post('/api/users', body, config)
     .then((res) =>
       dispatch({
+        // If successful sends response as the payload to authReducer
         type: REGISTER_SUCCESS,
         payload: res.data,
       })
@@ -63,6 +64,38 @@ export const register = ({ firstName, lastName, email, password }) => (
       );
       dispatch({
         type: REGISTER_FAIL,
+      });
+    });
+};
+
+// Login User
+export const login = ({ email, password }) => (dispatch) => {
+  // Headers
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  // Request body
+  const body = JSON.stringify({ email, password });
+
+  // Making POST request to api/auth endpoint
+  axios
+    .post('/api/auth', body, config)
+    .then((res) =>
+      dispatch({
+        // If successful sends response as the payload to authReducer
+        type: LOGIN_SUCCESS,
+        payload: res.data,
+      })
+    )
+    .catch((err) => {
+      dispatch(
+        returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL')
+      );
+      dispatch({
+        type: LOGIN_FAIL,
       });
     });
 };
