@@ -8,6 +8,7 @@ const app = express();
 // DB config
 const db = config.get('mongoURI');
 
+// Init Middleware
 app.use(express.json());
 
 // Connect ot Mongo
