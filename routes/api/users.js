@@ -64,6 +64,7 @@ router.post(
 
       user.password = await bcrypt.hash(password, salt);
 
+      // Return JWT
       await user.save();
 
       const payload = {
@@ -72,7 +73,6 @@ router.post(
         },
       };
 
-      // Return JWT
       jwt.sign(
         payload,
         config.get('jwtSecret'),
