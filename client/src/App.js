@@ -1,36 +1,14 @@
-import React, { Component } from 'react';
-import AppNavbar from './components/AppNavbar';
-import CodeList from './components/CodeList';
-import ItemModal from './components/ItemModal';
-import { Container } from 'reactstrap';
-
-import { Provider } from 'react-redux';
-import store from './store';
-import { loadUser } from './actions/authActions';
-
+import React, { Fragment } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './components/layout/Navbar';
+import Landing from './components/layout/Landing';
 import './App.css';
 
-// Calls loadUser when app mounts
-class App extends Component {
-  componentDidMount() {
-    store.dispatch(loadUser());
-  }
-
-  render() {
-    return (
-      // Provides access to state from components
-      <Provider store={store}>
-        <div className='App'>
-          <AppNavbar />
-          <Container>
-            <ItemModal />
-            <CodeList />
-          </Container>
-        </div>
-      </Provider>
-    );
-  }
-}
+const App = () => (
+  <Fragment>
+    <Navbar />
+    <Landing />
+  </Fragment>
+);
 
 export default App;
