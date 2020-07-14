@@ -33,11 +33,9 @@
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
-    "css-loader": "^3.6.0",
     "cssnpm": "^1.0.0",
     "i": "^0.3.6",
     "nodemon": "^2.0.4",
-    "prettier": "2.0.5",
-    "style-loader": "^1.2.1"
+    "prettier": "2.0.5"
   }
 }
