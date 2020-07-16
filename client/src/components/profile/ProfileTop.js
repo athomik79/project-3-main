@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import profile from '../../reducers/profile';
 
 const ProfileTop = ({
   profile: {
@@ -16,8 +15,7 @@ const ProfileTop = ({
     <div className='profile-top bg-primary p-2'>
       <img className='round-img my-1' src={avatar} alt='' />
       <h1 className='large'>
-        {firstName}
-        {lastName}
+        {firstName} {lastName}
       </h1>
       <p className='lead'>
         {status} {company && <span> at {company}</span>}
