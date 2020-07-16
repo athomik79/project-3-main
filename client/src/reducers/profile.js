@@ -30,7 +30,8 @@ export default function (state = initialState, action) {
       return {
         ...state,
         error: payload,
-        loadin: false,
+        loading: false,
+        profile: null,
       };
     case GET_PROFILES:
       return {
