@@ -7,6 +7,7 @@ const { check, validationResult } = require('express-validator');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
+const Post = require('../../models/Posts');
 
 // @route GET api/pofile/me
 // @desc Get current user's profile
@@ -113,7 +114,11 @@ router.post(
 // @access Public
 router.get('/', async (req, res) => {
   try {
-    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+    const profiles = await Profile.find().populate('user', [
+      'firstName',
+      'lastName',
+      'avatar',
+    ]);
     res.json(profiles);
   } catch (err) {
     console.error(err.message);
@@ -128,7 +133,7 @@ router.get('/user/:user_id', async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.params.user_id,
-    }).populate('user', ['name', 'avatar']);
+    }).populate('user', ['firstName', 'lastName', 'avatar']);
 
     if (!profile) return res.status(400).json({ msg: 'Profile not found' });
 
@@ -147,7 +152,8 @@ router.get('/user/:user_id', async (req, res) => {
 // @access Private
 router.delete('/', auth, async (req, res) => {
   try {
-    // @todo - remove user's posts
+    // Remove user posts
+    await Post.deleteMany({ user: req.user.id });
     // Remove profile
     await Profile.findOneAndRemove({ user: req.user.id });
     // Remove user
