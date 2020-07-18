@@ -1,0 +1,7 @@
+{
+  "mongoURI": "mongodb://user1:password1@ds135217.mlab.com:35217/heroku_s9vkfw41",
+  "jwtSecret": "sl_myJwtSecret",
+  "githubClientId": "38390696f9b321dc3bd7",
+  "githubSecret": "1f4eaa54299656a3f836080690ae4b328f9926f8",
+  "githubToken": "8d5b066f99dbcb9eaa4509cd023837de9e1c6b5c"
+}
