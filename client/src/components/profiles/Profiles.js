@@ -17,25 +17,25 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
       {loading ? (
         <Spinner />
       ) : (
-          <Fragment>
-            <h1 className='large text-primary'>Developers</h1>
-            <p className='lead'>
-              <i className='fab fa-connectdevelop'></i> Browse and connect with
+        <Fragment>
+          <h1 className='large text-primary'>Developers</h1>
+          <p className='lead'>
+            <i className='fab fa-connectdevelop'></i> Browse and connect with
             developers
           </p>
-            <div className='profiles'>
-              <Item />
-              {profiles.length > 0 ? (
-                profiles.map((profile) => (
-                  <ProfileItem key={profile._id} profile={profile} />
-                ))
-              ) : (
-                  <h4>No profiles found...</h4>
-                )}
-              <ItemList />
-            </div>
-          </Fragment>
-        )}
+          <div className='profiles'>
+            <Item />
+            {profiles.length > 0 ? (
+              profiles.map((profile) => (
+                <ProfileItem key={profile._id} profile={profile} />
+              ))
+            ) : (
+              <h4>No profiles found...</h4>
+            )}
+            <ItemList />
+          </div>
+        </Fragment>
+      )}
     </Fragment>
   );
 };
