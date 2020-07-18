@@ -2,9 +2,14 @@
   "name": "project-3-main",
   "version": "1.0.0",
   "description": "A Full Stack Mern APP with authentication",
+  "engines": {
+    "node": "12.18.2"
+  },
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "prod": "NODE_ENV=production node server.js",
+    "postinstall": "webpack -p",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
