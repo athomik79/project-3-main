@@ -15,6 +15,8 @@ import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Posts from './components/posts/Posts';
 import PrivateRoute from './components/routing/PrivateRoute';
+import Join from './components/chatroom/Join/Join';
+import Chat from './components/chatroom/Chat/Chat';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -45,6 +47,8 @@ const App = () => {
               <Route exact path='/login' component={Login} />
               <Route exact path='/profiles' component={Profiles} />
               <Route exact path='/profile/:id' component={Profile} />
+              <Route exact path='/join' component={Join} />
+              <Route exact path='/chat' component={Chat} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <PrivateRoute
                 exact
