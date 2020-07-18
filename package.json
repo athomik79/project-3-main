@@ -9,7 +9,6 @@
   "scripts": {
     "start": "node server.js",
     "prod": "NODE_ENV=production node server.js",
-    "postinstall": "webpack -p",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
