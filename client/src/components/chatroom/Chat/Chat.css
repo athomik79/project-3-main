@@ -1,4 +1,4 @@
-.outerContainer {
+.outerChatContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,7 +6,7 @@
     background-color: #1A1A1D;
 }
   
-.container {
+.chatContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
