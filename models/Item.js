@@ -3,10 +3,8 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const ItemSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-  },
+  blocks: Array,
+  entityMap: Map,
   date: {
     type: Date,
     default: Date.now,

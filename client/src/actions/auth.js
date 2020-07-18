@@ -103,3 +103,24 @@ export const logout = () => (dispatch) => {
   dispatch({ type: CLEAR_PROFILE });
   dispatch({ type: LOGOUT });
 };
+
+// Setup config/headers and token
+// Helper function to get token
+export const tokenConfig = (getState) => {
+  // Get token form localstorage
+  const token = getState().auth.token;
+
+  // Headers
+  const config = {
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+
+  // If token, add to headers
+  if (token) {
+    config.headers['x-auth-token'] = token;
+  }
+
+  return config;
+};
