@@ -4,7 +4,7 @@ const socketio = require('socket.io');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
-const config = require('config');
+// const config = require('config');
 
 // requiring user functions from users.js file
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
@@ -74,7 +74,8 @@ app.use(express.json());
 // Connect ot Mongo
 mongoose
   .connect(
-    process.env.MONGODB_URI || 'mongodb://localhost:27017/passportAuthDB',
+    process.env.MONGODB_URI ||
+      'mongodb://heroku_p3t00vkv:6h9g3a0k3jhu05h913qjht2hfu@ds119052.mlab.com:19052/heroku_p3t00vkv',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
