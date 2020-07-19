@@ -66,27 +66,36 @@ io.on('connect', (socket) => {
 });
 
 // DB config
-const db = config.get('mongoURI');
+// const db = config.get('mongoURI');
 
 // Init Middleware
 app.use(express.json());
 
 // Connect ot Mongo
-// mongoose.connect(
-//   process.env.MONGODB_URI ||
-//     'mongodb://user1:password1@ds043457.mlab.com:43457/heroku_p3gf4qvs'
-// );
-
 mongoose
-  .connect(db, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  }) // Adding new mongo url parser
+  .connect(
+    process.env.MONGODB_URI || 'mongodb://localhost:27017/passportAuthDB',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    }
+  )
 
   .then(() => console.log('MongoDB Connected'))
   .catch((err) => console.log(err));
+
+// mongoose
+//   .connect(db, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false,
+//   }) // Adding new mongo url parser
+
+//   .then(() => console.log('MongoDB Connected'))
+//   .catch((err) => console.log(err));
 
 // Use Routes
 app.use('/api/items', require('./routes/api/items'));
