@@ -18,7 +18,7 @@ const Chat = ({ location }) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const ENDPOINT =
-    'ws://blooming-thicket-17293.herokuapp.com/socket.io/?EIO=4&transport=websocket';
+    'ws:https://blooming-thicket-17293.herokuapp.com/socket.io/?EIO=4&transport=websocket';
 
   useEffect(() => {
     const { name, room } = querySting.parse(location.search);
